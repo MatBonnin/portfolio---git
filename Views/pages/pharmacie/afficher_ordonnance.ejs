@@ -1,0 +1,66 @@
+<%- include('header') %>
+    <main>
+        <% if (donnees!=""){ %>
+        <div class="card card-ordonnance">
+            <div class="card-body">
+                <h3 class="card-title">
+                    <%= nom %>
+                        <%= prenom %> né(e) le <%= age %>
+                </h3>
+                <br>
+                <% donnees2.forEach(function(pat){ %>
+                    <h4>Pathologie : <%= pat.ordo_patho %>
+                    </h4>
+                    <p class="card-subtitle mb-2 text-muted">Fait le <%= pat.ordo_date %>
+                    </p>
+                    <p>Par le docteur <%= pat.med_prenom %>
+                            <%= pat.med_nom %>
+
+                    </p>
+
+                    <% donnees.forEach(function(user){ %>
+
+                        <% if (pat.ordo_patho==user.ordo_patho){ %>
+                            <ul>
+                                <li>
+                                    <strong>
+                                        <%= user.medic_nom %>
+                                    </strong> : <%= user.trait_boites %> fois par mois pendant <%= user.trait_duree %>
+                                            mois
+                                </li>
+
+                            </ul>
+
+                            <% }%>
+                                <% })%>
+                                    <a href="/pharmacie/supprimer_ordonnance/<%= pat.ordo_id %>&<%= secu %>"><button
+                                            class="btn btn-supp-ord">Supprimer</button></a>
+
+
+                                    <% })%>
+            </div>
+        </div>
+        <% } else{ %> 
+
+            <div class="card card-ordonnance">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <%= nom %>
+                            <%= prenom %> n'as pas d'ordonnance
+                    </h3>
+                    <br>
+                    <a class="a-ord btn" href="/pharmacie/liste/enregistrer_ordonnance/<%= secu %>">
+                        Ajouter</a>
+                   
+    
+                        
+                </div>
+            </div>
+
+
+            <% } %> 
+    <%- include('footer') %>
+
+        </body>
+
+        </html>

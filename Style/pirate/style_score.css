@@ -1,0 +1,84 @@
+html{
+	height: 100%;
+	width: 100%;
+	 overflow-x: hidden;
+	 overflow-y: hidden; 
+	 margin: 0;
+	padding: 0;
+}
+
+@font-face {
+ font-family:"Treasure Map Deadhand";
+ src: url("fonts/pirate.ttf") format("ttf");
+}
+
+@font-face {
+ font-family:"BlackPearl";
+ src: url("fonts/Blackpearl.ttf") format("ttf");
+}
+
+body{
+	
+	background: url(img/fond.jpg);
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.tableau_score{
+	text-align: center;
+	position: absolute;
+	left: 43%;
+	top: 15%;
+	font-family: arial;
+	font-size: 20px;
+	border: solid 2px;
+	border-color: rgb(136,47,25); 
+	border-collapse: collapse;
+	background-color: rgb(255,232,180);
+	
+}
+
+td,tr,th{
+	border: solid 1px;
+	border-color: rgb(136,47,25);
+	border-collapse: collapse;
+}
+th{
+	border: solid 2px;
+	border-color: rgb(136,47,25);
+}
+
+.menu{
+	padding: 0px;
+	position: fixed;
+	display: flex;
+	width: 100%;
+	height: 100px;
+	border-bottom:  solid 3px;
+	border-color: rgb(255,215,145);
+	background-color: rgb(72,73,73);
+	line-height: 66px;
+	justify-content: center;
+	font-family: "Black Rose";
+	color: rgb(255,215,145);
+	font-size: 30px;
+	
+}
+
+.singe{
+	position: relative;
+	left: -28%;
+}
+
+.fleche {
+	position: absolute;
+	height: 50%;
+	top:40%;
+	left: 1%;
+	background-color:rgb(255,215,145);
+	transform:  rotate(180deg);
+	border-radius: 30px;
+}

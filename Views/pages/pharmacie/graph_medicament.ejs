@@ -1,0 +1,131 @@
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.js"></script>
+</head>
+
+<%- include('header') %>
+
+<body>
+    <% var labels=[];
+ var datas=[];
+ let MedStock=stock
+ let medoc=medic
+
+ 
+for (let i=0;i<12;i++){
+       datas.push(tab2[i]) 
+    console.log(datas)
+    }
+
+    var difStock = ((datas[0]+datas[1]+datas[2])-MedStock)
+    
+    
+
+    %>
+    <div class="card-chart">
+        <div class="cmd-stock-pl">
+            <button id="btn-cmd-stock" class="btn btn-cmd-stock">
+                <a href="/pharmacie/liste_medicaments/graphiques/commander/<%= medoc %>&<%= difStock %>">Commander stock</a>
+            </button>
+        </div>
+        <div class="chartContainer">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    <%- include('footer') %>
+</body>
+
+</html>
+
+    <script>
+        let dates = new Date()
+        anneeActuelle = dates.getFullYear()
+        anneeSuivante = dates.getFullYear() + 1
+        moisActuelle = dates.getMonth()
+        const ctx = document.getElementById('myChart').getContext('2d');
+        let color = ""
+        let medStock = <%- JSON.stringify(MedStock) %>;
+        let medoc = <%- JSON.stringify(medoc) %>;
+        var LesDatas = <%- JSON.stringify(datas) %>;
+        var labels = []
+        
+        var mois = [
+
+            ['Janvier '],
+            ['Février'],
+            ['Mars'],
+            ['Avril'],
+            ['Mai'],
+            ['Juin'],
+            ['Juillet'],
+            ['Aout'],
+            ['Septembre'],
+            ['Octobre'],
+            ['Novembre'],
+            ['Décembre'],
+        ]
+       console.log(mois[11])
+
+        for (let i = 0; i < 12; i++) {
+            console.log(moisActuelle+i)
+            if (moisActuelle==(moisActuelle+i)) {
+                labels.push(mois[moisActuelle+i]) 
+            }
+            else if ((moisActuelle+i)>=12) {
+                labels.push(mois[(moisActuelle+i)%12])
+            }
+            else {
+                labels.push(mois[moisActuelle+i])
+            }
+           
+        }
+        
+        
+        
+
+        if (medStock<(LesDatas[0]+LesDatas[1]+LesDatas[2])){
+            color = "rgba(255, 99, 132, 1)"
+            document.getElementById("btn-cmd-stock").disabled = false;
+        }
+        else {
+            color ="#5AD246"
+            document.getElementById("btn-cmd-stock").disabled = true;
+        }
+
+        console.log(labels)
+
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Prévision des stocks nécessaires pour ' + medoc + '',
+                    data:LesDatas ,
+                    tension: 0.3,
+                    borderColor: [
+                    "#5AD246"],
+                    borderWidth: 2
+                },{
+                    type: 'line',
+                    label: 'Stock actuel',
+                    
+                    borderDash: [5,5],
+                    data: [medStock, medStock, medStock, medStock,medStock,medStock,medStock,medStock,medStock,medStock,medStock,medStock],
+                    borderColor: color,
+        
+        }],
+        },
+            options: {
+            responsive: true,
+            scales: {
+                y: {
+                    max:((medStock+LesDatas[0])),
+                    stepValue: 1,
+                    step:1,
+                    beginAtZero: true,
+                    
+                    
+                }
+            }
+        }
+});
+    </script>

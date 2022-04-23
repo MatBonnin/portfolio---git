@@ -1,0 +1,46 @@
+<!-- <!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordonnance</title>
+
+
+</head> -->
+<%- include('header') %>
+
+    <main>
+        <form action="/pharmacie/liste/ordonnance/ajouter" method="POST" enctype="application/x-www-form-urlencoded">
+            <% Liste.forEach(function(user){ %>
+                <h2>Médecin</h2>
+                <input type="text" name="pre_med" id="pre_med" placeholder="Prénom médecin">
+                <input type="text" name="nom_med" id="nom_med" placeholder="Nom médecin">
+                <input type="number" name="num_med" id="num_med" placeholder="Téléphone médecin">
+                <h2>Client</h2>
+                <input type="text" name="pre_cli" id="pre_cli" value="<%= user.cli_prenom %>" readonly>
+                <input type="text" name="nom_cli" id="nom_cli" value="<%= user.cli_nom %>" readonly>
+                <input type="text" name="date_cli" id="date_cli" value="<%= user.cli_date %>" readonly>
+                <h2>Médicaments</h2>
+
+                <div id="addInput"></div>
+                <input type="button" value="Ajouter un médicament" onClick="add();" />
+
+                <input type="submit" value="Valider" />
+
+
+
+                <% })%>
+        </form>
+    </main>
+
+    <%- include('footer') %>
+    <script type="text/javascript">
+        function add() {
+            var input = addInput.innerHTML
+            addInput.innerHTML = input + '<input placeholder="Médicament" type="text" name="med" id="med" /><br /> <input type="number" name="durée" id="durée" placeholder="Durée traitement (mois)" /> <br /><input type="number" name="boites"  id="boites" placeholder="Nombre boites par mois" /><br /> <br />\n';
+        }
+    </script>
+
+    </html>

@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Score</title>
+	<link rel="stylesheet" type="text/css" href="/Style/pirate/style_score.css" />
+	<meta charset="UTF-8">
+
+</head>
+
+<header>
+	
+	<nav class="menu">
+		<a  href="/SIO1/pirate">
+			<img class="fleche" src="/img/pirate/fleche.png">
+		</a>
+		<div class="titre">
+			<h1>Tableau des scores</h1>
+		</div>
+		<img class="peroquet" src="/img/pirate/peroquet.png">
+	</nav>
+
+</header>
+<body>
+
+	<table class="tableau_score">
+		<th>pseudo</th>
+		<th>score</th>
+		
+		<% score.forEach(element=> {  %>
+			<tr>
+				<td><%= element.pseudo %></td>
+				<td><%= element.score %></td>
+			</tr>
+		<% }); %>
+		
+	</table>
+			
+	
+</body>
+</html>
+

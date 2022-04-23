@@ -1,0 +1,64 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<title>Trésor</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/Style/pirate/style.css" />
+	
+</head>
+
+<link rel="stylesheet" type="text/css" href="/Style/pirate/style.css" />
+
+
+<body id="test">
+
+	<a  href="/">
+		<img class="retour" src="/img/pirate/fleche.png">
+	</a>
+	<img onclick='musique();' class="banjo" src="/img/pirate/banjo.png">
+	<div class="jeu">
+		<table class="tableau">
+			<script type="text/javascript">
+
+				for (let i=0 ; i<10 ; i++){
+					document.write("<tr>");
+					for (let j=0; j<10 ; j++){
+						document.write("<td onclick='choix(this.id);'  id="+i+"-"+j+"></td>");
+					}
+					document.write("</tr>");
+				} 
+			</script>
+		</table>
+	</div>
+	<p  id="score"></p>
+
+	<div id="affichage">
+		<p id="annonce">Trouve le trésor caché !!!</p>
+		<img class="planche" src="/img/pirate/planche.png">
+		<button onclick='restart();'>Rejouer</button>
+	</div>
+	
+	
+	
+	<form id="idform" action="/SIO1/Pirate/enregistrerScore" method="POST" >
+		<a href="/SIO1/Pirate/score">
+			<img class="imgScore" src="/img/pirate/score.png">
+		</a>
+		
+		<h3>Enregistrement score</h3>
+		<input class="pseudo" type="text" name="pseudo" placeholder="Pseudo" autocomplete="off" required >
+		<input id="score_final" type="number" name="score" readonly hidden>
+		<input class="send" onclick='scoore();' type="submit" name="envoyer">
+
+	</form>
+	<nav class="regle">
+		<a href="/SIO1/Pirate/info">
+			<img class="info" src="/img/pirate/info.png"> 
+		</a>
+		
+	</nav>
+</body>
+
+
+<script type="text/javascript" src="/JS/pirate/jeu.js"></script>
+</html>

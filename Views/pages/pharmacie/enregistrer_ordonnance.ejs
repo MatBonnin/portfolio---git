@@ -1,0 +1,97 @@
+<%- include('header') %>
+    <main>
+        <form action="/pharmacie/liste/ordonnance/ajouter" method="POST" enctype="application/x-www-form-urlencoded"
+            class="add-ord">
+            <div class="form-group">
+                <% Liste.forEach(function(user){ %>
+                    <h2>Médecin</h2>
+                    <br>
+                    <div class="col-sm-3">
+                        <input class="form-control" type="text" name="pre_med" id="pre_med" placeholder="Prénom médecin"
+                            required autocomplete="off">
+                    </div>
+                    <br>
+                    <div class="col-sm-3">
+                        <input class="form-control" type="text" name="nom_med" id="nom_med" placeholder="Nom médecin"
+                            required autocomplete="off">
+                    </div>
+                    <br>
+                    <div class="col-sm-3">
+                        <input class="form-control" type="number" name="num_med" id="num_med"
+                            placeholder="Téléphone médecin" required autocomplete="off">
+                    </div>
+                    <br>
+                    <h2>Client</h2>
+                    <br>
+                    <div class="col-sm-3">
+                        <input class="form-control" type="text" name="pre_cli" id="pre_cli"
+                            value="<%= user.cli_prenom %>" readonly required>
+                    </div>
+                    <br>
+                    <div class="col-sm-3">
+                        <input class="form-control" type="text" name="nom_cli" id="nom_cli" value="<%= user.cli_nom %>"
+                            readonly required>
+                    </div>
+                    <br>
+                    <div class="col-sm-3">
+                        <input class="form-control" type="text" name="date_cli" id="date_cli"
+                            value="<%= user.cli_date %>" readonly required>
+                    </div>
+                    <br>
+                    <h2>Ordonnance</h2>
+                    <br>
+                    <div class="col-sm-3">
+                        <input class="form-control" type="text" name="maladie_ordo" id="maladie_ordo"
+                            placeholder="Pathologie" required autocomplete="off">
+                    </div>
+                    <br>
+                    <div class="col-sm-3">
+                        <input class="form-control" type="text" name="date_ordo" id="date_ordo"
+                            placeholder="Date (jj/mm/aaaa)" pattern="\d{1,2}/\d{1,2}/\d{4}" maxlength="10" required
+                            autocomplete="off">
+                    </div>
+                    <br>
+                    <h3>Médicaments</h3>
+                    <br>
+                    <div class="col-sm-3">
+                        <datalist id="med">
+                            <% medics.forEach(function(user2){ %>
+                                <option value="<%= user2.medic_nom %> ">
+                                    <% })%>
+                        </datalist>
+                        <input class="form-control" list="med" autocomplete="off"  placeholder="Médicament" type="text" name="med" id="med"
+                            required />
+                    </div>
+            </div>
+            <br>
+            <div class="col-sm-3">
+                <input class="form-control" type="number" name="durée" id="durée" placeholder="Durée traitement (mois)"
+                    required autocomplete="off" />
+            </div>
+            <br>
+            <div class="col-sm-3">
+                <input class="form-control" type="number" name="boites" id="boites" placeholder="Nombre boites par mois"
+                    required autocomplete="off" />
+            </div>
+            <div id="addInput" class="col-sm-3"></div>
+            <br />
+            <button class="btn btn-enr-ord" type="button" onClick="add();">Ajouter un médicament</button>
+            <br>
+            <button class="btn btn-enr-ord" type="submit">Enregistrer</button>
+
+
+
+            <% })%>
+                </div>
+        </form>
+    </main>
+    <script type="text/javascript">
+        function add() {
+            var input = addInput.innerHTML
+            addInput.innerHTML = input + '<br/><input placeholder="Médicament" class="form-control" list="med" type="text" autocomplete="off" name="med" id="med" required /><br /> <input class="form-control" autocomplete="off" type="number" name="durée" id="durée" placeholder="Durée traitement (mois)" required/> <br/><input class="form-control" autocomplete="off" type="number" name="boites"  id="boites" placeholder="Nombre boites par mois" required /><br /> <br />\n';
+        }
+    </script>
+
+    <%- include('footer') %>
+
+        </html>

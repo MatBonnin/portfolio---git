@@ -1,0 +1,43 @@
+<%- include('header') %>
+
+    <main>
+        <% donnee.forEach(function(user){ %>
+            <form action="/pharmacie/modifier_client/<%= user.cli_id %>" method="POST" enctype="application/x-www-form-urlencoded"
+                class="form-client">
+                <h2>Modifier les informations d'un client</h2>
+                <br>
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" name="prenom" id="prenom" placeholder="Prénom du client"
+                        value="<%= user.cli_prenom %>" autocomplete="off" required>
+                </div>
+                <br>
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" name="name" id="nom" placeholder="Nom du client"
+                        value="<%= user.cli_nom %>" required autocomplete="off">
+                </div>
+                <br>
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" name="secu" id="secu"
+                        placeholder="Numéro de sécurité social" minlength="15" maxlength="15"
+                        value="<%= user.cli_secu %>" autocomplete="off">
+                </div>
+                <br>
+                <div class="col-sm-3">
+                    <input class="form-control" type="number" name="tel" id="tel" placeholder="Téléphone"
+                        value="0<%= user.cli_telephone %>" required autocomplete="off">
+                </div>
+                <br>
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" name="mutu" id="mutu" placeholder="Mutuelle"
+                        value="<%= user.cli_mutuelle %>">
+                </div>
+                <br>
+                <button class="btn btn-client" type="submit">Modifier</button>
+                <% }) %>
+            </form>
+
+    </main>
+    <%- include('footer') %>
+        </body>
+
+        </html>

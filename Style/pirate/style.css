@@ -1,0 +1,252 @@
+/*Style fait sur un ecran 24 pouces,les éléments risques d'être décalé sur un écran de taille différente  */
+
+html{
+	height: 100%;
+	width: 100%;
+	 overflow-x: hidden;
+	 overflow-y: hidden; 
+}
+
+@font-face {
+ font-family:"Treasure Map Deadhand";
+ src: url("/fonts/pirate.ttf") format("ttf");
+}
+
+body{
+	
+	background: url(/img/pirate/fond.jpg);
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+}
+
+td,tr{
+	border-collapse: collapse;
+	border: white 1px dashed;
+}
+
+button{
+	position: absolute;
+	background-color: transparent;
+	background-size: cover;
+	font-style: bold;
+	top: 62%;
+	left: 39%;
+	height: 12%;
+	color: rgb(255,215,145);
+	border: none;
+	width: 20%;
+
+}
+
+.planche{
+	position: absolute;
+	top: 42%;
+	left: 30%;
+	height: 150px;
+
+}
+
+#affichage{
+	position: absolute;
+	font-family: "Treasure Map Deadhand";
+	background-image: url(/img/pirate/cadre.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 30%;
+	width: 20%;
+	z-index:2;
+	top: 70%;
+	left: 15%;		
+}
+
+#annonce{
+	position: relative;
+	top: 31%;
+	left:22%;
+	color: rgb(255,215,145);
+	font-size: 25px;
+	text-align: center;
+	width: 60%;
+}
+
+.jeu{
+	flex-direction: row;
+	height: 100%;
+	width: 100%;
+}
+
+.tableau{
+	position: absolute;
+	z-index: 1;
+	border-collapse: collapse;
+	background: url(/img/pirate/carte.jpg);
+	background-size: 100%;
+	box-sizing: border-box;
+	height: 75%;
+	width: 45%;
+	left: 3%;
+}
+
+#score{
+	position: absolute;
+	font-size: 30px;
+	font-style: bold;
+	font-family: arial;
+	left: 63%;
+	top: 35%;
+	width: 400px;
+	text-align: center;
+}
+
+.bad{
+	opacity: 90%;
+	background:url(/img/pirate/croix.png);
+	background-size: 93%;
+	background-position: center;
+}
+
+.middle{
+	opacity: 70%;
+	background-color: orange;
+	transition: 1s;
+}
+
+.good{
+	opacity: 90%;
+	background: url(/img/pirate/coffre.png);
+	background-size: cover;
+	transition: 1s;
+}
+
+.bonus{
+	background-image: url(/img/pirate/piece.png);
+	background-size: cover;
+	transition: 1s;
+	background-position: left 50% bottom 25%;	
+}
+
+.malus{	
+	background-image: url(/img/pirate/bomb.png);
+	background-size: cover;
+	transition: 1s;
+	background-position: left 50% bottom 25%;
+}
+
+.zone1{
+	background-image: url(/img/pirate/pelle.png);
+	background-size: 60%;
+	background-repeat: no-repeat;
+	transition: 1s;
+	background-position: left 50% bottom 25%;
+}
+
+.zone2{
+	background-image: url(/img/pirate/vue.png);
+	background-size: 60%;
+	background-repeat: no-repeat;
+	transition: 1s;
+	background-position: left 50% bottom 25%;
+}
+.retour{
+	position: absolute;
+	transform: rotate(180deg);
+	top: 0px;
+	left: 10px;
+	height: 5%;
+}
+.banjo{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 5%;
+}
+
+.lapin{
+
+	background-image: url(img/lapin.png);
+	background-size: 60%;
+	background-repeat: no-repeat;
+	transition: 1s;
+	background-position: left 50% bottom 25%;
+}
+
+
+
+.envoyer{
+	padding: 0px;
+	margin: 0px;
+	color: black;
+	position: absolute;
+	top: 47%;
+	left: 71%;
+	border: black 1px solid;
+	width: 5%;
+	height: auto;
+	border-radius: 12px;
+
+
+}
+
+.pseudo{
+	position: relative;
+	background-color: rgb(255,232,180);
+	border:none;
+	text-align: center;
+	top:  -20%;
+	border-radius: 20px;
+	left: 18%;
+}
+
+.send {
+	position: relative;
+	border:none;
+	top: -20%;
+	border-radius: 20px;
+	left: 18%;
+}
+
+#idform {
+	position: absolute;
+	top: 0%;
+	left: 62%;
+	background-color: rgb(72,73,73);
+	height: 8%;
+	width: 20%;
+	border-right: 2px solid;
+	border-left: 2px solid ;
+	border-bottom: 2px solid ;
+	box-shadow: 10px 5px 5px grey;
+	border-color: rgb(136,47,25);
+
+}
+
+h3{
+	position: relative;
+	top: -20%;
+	font-family: "Arial";
+	color: rgb(213,154,62);
+	text-align: center;
+	
+	}
+
+.imgScore{
+	position: absolute;
+	height: 60%
+}
+
+.regle {
+	position: absolute; 
+	text-orientation: upright;
+	top: 30%;
+	left: 0%;
+	height: 5%;
+	width: auto;
+
+
+	background-color: rgb(72,73,73);
+}
+.info{
+	position: relative;
+	height: 90%;
+}

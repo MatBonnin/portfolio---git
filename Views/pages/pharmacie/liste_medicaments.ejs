@@ -1,0 +1,58 @@
+<%- include('header') %>
+
+    <form class="formSearch" action="/pharmacie/liste_medicaments/rechercher" method="POST"
+        enctype="application/x-www-form-urlencoded">
+        <div class="input-group">
+            <div class="form-outline">
+                <input type="search" name="rechercher" id="rechercher" type="text" class="form-control"
+                    autocomplete="off" />
+            </div>
+            <button type="submit" value="Rechercher" class="btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </form>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Nom du médicament</th>
+                    <th>Stock</th>
+                    <th>Graphique</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <% Lignes.forEach(function(user){ %>
+            
+                
+                    <tr>
+                        <td>
+                            <%= user.medic_nom %>
+                        </td>
+
+                        <td>
+                            <%= user.medic_stock %>
+                        </td>
+                        <td>
+                            <a href="/pharmacie/liste_medicaments/graphiques/<%= user.medic_nom %>">
+                                <i class="fas fa-chart-bar"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="" href="/pharmacie/liste_medicament/supprimer/<%= user.medic_id %>"><i class="fas fa-trash-alt"></i></a>
+                                                </td>
+                        
+                    </tr>
+        
+
+                <% })%>
+            </tbody>
+        </table>
+    </div>
+    <%- include('footer') %>
+</body>
+
+</html>

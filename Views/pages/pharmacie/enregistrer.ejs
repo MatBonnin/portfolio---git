@@ -1,0 +1,61 @@
+<%- include('header') %>
+
+    <main>
+        <form action="/pharmacie/enregistrer" method="POST" enctype="application/x-www-form-urlencoded" class="form-client">
+            
+            <h2>Enregister un client</h2>
+            <br>
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" name="prenom" id="prenom" placeholder="Prénom du client"
+                        autocomplete="off" required>
+                </div>
+                <br>
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" name="name" id="nom" placeholder="Nom du client"
+                        autocomplete="off" required>
+                </div>
+                <br>
+                <div class="col-sm-3">
+                    <select class="form-select" name="sexe" id="sexe" required>
+                        <option value="">-- Quel est votre genre --</option>
+                        <option value="Homme">Homme</option>
+                        <option value="Femme">Femme</option>
+                        <option value="Autres">Autres</option>
+                    </select>
+                </div>
+                <br>
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" name="date" id="date"
+                        placeholder="Date de naissance (jj/mm/aa)" pattern="\d{1,2}/\d{1,2}/\d{4}" maxlength="10"
+                        autocomplete="off" required>
+                </div>
+                <br>
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" name="secu" id="secu" minlength="15" maxlength="15"
+                        placeholder="Numéro de sécurité social" autocomplete="off" required>
+                </div>
+                <br>
+                <div class="col-sm-3">
+                    <% if(i==2){ %>
+                        <div class="alert">
+                            <p ><%= alert %></p>
+                        </div>
+                        
+                        <% }%>
+                    <input class="form-control" type="tel" maxlength="10" name="tel" id="tel" placeholder="Téléphone"
+                        autocomplete="off" required>
+                </div>
+                <br>
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" name="mutu" id="mutu" placeholder="Mutuelle"
+                        autocomplete="off" required>
+                </div>
+            </div>
+            <br>
+            <button class="btn btn-client" type="submit">Enregistrer</button>
+        </form>
+        <%- include('footer') %>
+            </body>
+
+            </html>
