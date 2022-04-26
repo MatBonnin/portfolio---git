@@ -16,6 +16,7 @@
     "iniparser": "^1.0.5",
     "mysql": "^2.18.1",
     "node-fetch": "^2.0.0",
+    "node-iframe": "^1.7.0",
     "nodemon": "^2.0.15"
   }
 }

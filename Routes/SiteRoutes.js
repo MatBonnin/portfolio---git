@@ -77,4 +77,10 @@ routeur.post('/pharmacie/modifier_client/:id',ControlePharmacie.site_modifier_cl
 
 routeur.get('/pharmacie/liste_medicament/supprimer/:medic',ControlePharmacie.site_supprimer_medicament)
 
+//STAGE SOLTI
+
+routeur.get('/SIO2/SOLTI', Controle.afficherStage);
+
+routeur.get('/iframe', Controle.iframe);
+
  module.exports = routeur;

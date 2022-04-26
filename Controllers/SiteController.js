@@ -1,5 +1,6 @@
 var myModel = require('../Models/MyModel.js');
 var fetch = require('node-fetch');
+const createIframe = require ('node-iframe');
 
 const accueil = (req, res) => {
 
@@ -37,6 +38,19 @@ const afficherScore = async(req,res) => {
     res.render('pages/pirate/score',{score:score})
 }
 
+const afficherStage = (req,res) => {
+    res.render('pages/stage')
+}
+
+const iframe = (req,res) => {
+    res.createIframe({
+        url: req.query.url,
+        baseHref: req.query.baseHref, // optional: determine how to control link redirects,
+        config: { cors: { script: true } }, // optional: determine element cors or inlining #shape src/iframe.ts#L34
+      });
+}
+
+
 
 module.exports = {
     accueil,
@@ -44,5 +58,7 @@ module.exports = {
     pirate,
     infoPirate,
     enregistrerScore,
-    afficherScore
+    afficherScore,
+    afficherStage,
+    iframe
 }

@@ -19,10 +19,12 @@
   html {
     position: relative;
     min-height: 100%;
+    background-color: #000000;
   }
   
   body {
     margin-bottom: 4rem;
+    background-color: #000000;
   }
   
   .footer {
@@ -36,4 +38,61 @@
 
 #mainCard{
   min-width: 320px;
+}
+.card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+}
+
+
+.navbar-custom {
+  background-color: #252422;
+  border-bottom: 1px solid #846836;
+  border-radius: 10px;
+  
+}
+
+a:hover{
+  color: #846836;
+}
+.nav-link:hover{
+  color: #846836;
+}
+
+.nav-link:focus{
+  color: #846836;
+}
+
+
+.orange{
+  color: #846836;
+}
+
+.custom-background{
+  background-color: #000000;
+}
+.custom-background-card{
+  background-color: #252422;
+} 
+
+.nav-pills .nav-link.active{
+  background-color:#000000;
+  border-bottom: 1px solid #846836;
+  color: #846836;
+}
+
+.nav-pills .nav-link{
+  color: #846836;
+}
+
+.navbar-nav .dropdown-menu{
+  background-color:#252422;
+}
+
+.dropdown-item:focus, .dropdown-item:hover{
+  background-color:#252422;
+  color: #846836;
+  border-left: 3px solid #846836;
+  border-right: 3px solid #846836;
 }
