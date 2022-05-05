@@ -1,30 +1,46 @@
 :root {
     /* Variables globales */
     --classic-transition: 0.3s ease-in-out;
+    --color-text-navbar: white;
+    --color-text:#69084D;
+    --color-background-navbar:#EC5858;;
+    --color-background: white;
+    --color-background-card:#222222;
+    /* dorée #846836 
+       navbar #252422
+       
+    */
     /* --error-color: tomato;
     --success-color: #8bc34a; */
   }
   
-  ::selection {
-    background-color: #cce2ff;
-    color: black;
-  }
+  @font-face {
+    font-family:"Breakfast";
+    src: url("/fonts/Breakfast.ttf") format("ttf");
+   }
+
+   @font-face {
+    font-family:"Cocogoose";
+    src: url("/fonts/Cocogoose.ttf") format("ttf");
+   }
+
   
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
+
   
   html {
-    position: relative;
-    min-height: 100%;
-    background-color: #000000;
+ 
+   height: 100%;
+    background-color: var( --color-background);
+    /* background-image: url("/img/background/space.jpg"); */
+    
   }
   
   body {
+    height: 100%;
     margin-bottom: 4rem;
-    background-color: #000000;
+    background-color: var( --color-background);
+    /* background-image: url("/img/background/space.jpg"); */
+    backdrop-filter: blur(5px);
   }
   
   .footer {
@@ -47,52 +63,189 @@
 
 
 .navbar-custom {
-  background-color: #252422;
-  border-bottom: 1px solid #846836;
-  border-radius: 10px;
+  background-color: var(--color-background-navbar);
+  
+  
+ 
   
 }
 
 a:hover{
-  color: #846836;
+  color:  var( --color-text-navbar);
 }
 .nav-link:hover{
-  color: #846836;
+  color:  var( --color-text-navbar);
 }
 
 .nav-link:focus{
-  color: #846836;
+  color: var( --color-text-navbar);
 }
 
 
 .orange{
-  color: #846836;
+  color: var( --color-text-navbar);
 }
 
 .custom-background{
-  background-color: #000000;
+  background-color: white;
 }
 .custom-background-card{
-  background-color: #252422;
+  background-color:  none;
+ border: none;
+ 
+  backdrop-filter: blur(100px);
 } 
 
 .nav-pills .nav-link.active{
-  background-color:#000000;
-  border-bottom: 1px solid #846836;
-  color: #846836;
+  background-color: white;
+  border-bottom: 1px solid  var( --color-background-navbar);
+  color:  black;
+  border-radius: 0%;
 }
 
 .nav-pills .nav-link{
-  color: #846836;
+  color:  black;
 }
 
 .navbar-nav .dropdown-menu{
-  background-color:#252422;
+  background-color:  var( --color-background-navbar);
+  
+  backdrop-filter: blur(3px);
+ 
+}
+
+.navbar-brand{
+  /* font-family: ""; */
+  font-size: 30px;
 }
 
 .dropdown-item:focus, .dropdown-item:hover{
-  background-color:#252422;
-  color: #846836;
-  border-left: 3px solid #846836;
-  border-right: 3px solid #846836;
+  background-color:  var( --color-background-navbar);
+  backdrop-filter: blur(3px);
+  color:  black;
+  border-left: 4px solid  var( --color-background-card);
+  border-right: 4px solid  var( --color-background-card);
+
 }
+
+.clancy {
+  height: 60px;
+}
+
+.nav.nav-center {
+  margin:0;
+  float:none;
+}
+
+.navbar-inner{
+  text-align:center;
+}
+
+.card.w-25{
+  background-color:  var( --color-background-card);
+  box-shadow: 2px 2px 2px black;
+  backdrop-filter: blur(10px);
+  height: 250px;
+}
+
+.card.w-25 img.coffre{
+  height: auto;
+  width: 100px;
+  margin-top: 20px;
+}
+
+.card.w-25 img.loto{
+  height: auto;
+  width: 200px;
+  margin-top: 40px;
+  
+}
+
+.card.w-25 img.solti{
+  
+  margin-top: 40px;
+  
+}
+
+.nav-item.brand{
+  
+  background-color: var( --color-background-navbar);
+}
+
+img.coffre{
+  height: auto;
+  width: 50px;
+}
+
+.card.w-25:hover{
+  transform: translateY(0) scale(1.1);
+}
+
+.accueilcard{
+  background-color: var(--color-background-card);
+  color: white;
+  height: 600px;
+  width: 75%;
+  margin-left:17%;
+}
+
+footer{
+ 
+  background-color: var(--color-background-card);
+  color: white;
+  margin-top: 8rem!important;
+
+}
+
+footer img{
+  height: auto;
+  width:100%;
+ 
+}
+
+footer .nav-link{
+  width: 50px;
+  margin-right: 20px;
+}
+
+.presentation {
+  top: 15%;
+  left: 50%;
+}
+
+.carouselAccueil{
+  width: 50%;
+}
+
+.titreAccueil{
+  top:2%;
+  left: 50%;
+}
+
+.carousel{
+  top: 10%;
+  width: 60%;
+  left: -15%;
+  border-radius: 10px;
+}
+
+h5{
+  color: #222222;
+}
+
+.carousel-inner{
+  border-radius: 5px;
+}
+
+
+.carousel-indicators [data-bs-target]{
+  background-color: #222222;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* .carousel-control-next-icon {
+  background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e);
+} */
