@@ -79,8 +79,10 @@ routeur.get('/pharmacie/liste_medicament/supprimer/:medic',ControlePharmacie.sit
 
 //STAGE SOLTI
 
-routeur.get('/SIO2/SOLTI', Controle.afficherStage);
+routeur.get('/SIO2/STAGE', Controle.afficherStage);
 
 routeur.get('/iframe', Controle.iframe);
+
+routeur.get('/SIO2/SOLTI', Controle.afficherSolti);
 
  module.exports = routeur;

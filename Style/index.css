@@ -208,7 +208,7 @@ footer .nav-link{
   margin-right: 20px;
 }
 
-.presentation {
+.textcard {
   top: 15%;
   left: 50%;
 }
@@ -220,9 +220,11 @@ footer .nav-link{
 .titreAccueil{
   top:2%;
   left: 50%;
+  color: burlywood;
 }
 
-.carousel{
+
+.carousel.impaire{
   top: 10%;
   width: 60%;
   left: -15%;
@@ -244,6 +246,84 @@ h5{
 
 a {
   text-decoration: none;
+}
+
+.accueilcard.paire {
+  background-color: var(--color-background-navbar);
+}
+
+.titreAccueil.paire{
+    left: 0%;
+    top: 0%;
+    
+}
+
+.text.paire{
+  left: 5%;
+  width: 47%;
+  height: 100%;
+  top: 20%;
+}
+
+.text.impaire{
+  left: 5%;
+  width: 90%;
+  height: 100%;
+  top: 13%;
+}
+.textcard.paire{
+  left: 0%;
+  top: 13%;
+}
+
+.carousel.paire{
+  top: 10%;
+  left: 55%;
+  width: 60%;
+}
+
+.card{
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+}
+
+.iconImpaire{
+  width: 7%;
+  left: 90%;
+  top: 1.5%;
+}
+
+.iconPaire{
+  width: 7%;
+  
+  top: 1.5%;
+}
+
+.icon{
+  width:100%;
+}
+
+.textStage.impaire{
+  left: 5%;
+  height: 100%;
+  width: 90%;
+  top: 0%;
+}
+
+
+.imgImpaire {
+  position: absolute;
+  width: 60%;
+  left: -15%;
+  top: 10%;
+}
+
+.imgpaire{
+  position: absolute;
+  width: 60%;
+  right: -15%;
+  top: 10%;
 }
 
 /* .carousel-control-next-icon {

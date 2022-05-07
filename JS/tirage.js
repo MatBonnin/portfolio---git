@@ -29,11 +29,12 @@ function TirageAleatoire(){
 	}
 	//Calcul des semaines en années
 	année=Math.trunc(semaine/52)
+	var argent = semaine*2
 	if (gagné>1){
-		document.querySelector("#res").innerHTML = gagné+" bon numéros sont sortie au bout de "+semaine+" tirages soit "+année+" années à hauteur de 1 tirage par semaine"
+		document.querySelector("#res").innerHTML = gagné+" bon numéros sont sortie au bout de "+semaine+" tirages soit "+année+" années à hauteur de 1 tirage par semaine. Vous avez dépensé "+argent+" euros"
 	}
 	else {
-		document.querySelector("#res").innerHTML = gagné+" bon numéro est sortie au bout de "+semaine+" tirages"
+		document.querySelector("#res").innerHTML = gagné+" bon numéro est sortie au bout de "+semaine+" tirages. Vous avez dépensé "+argent+" euros"
 
 	}	
 }

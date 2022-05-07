@@ -42,6 +42,10 @@ const afficherStage = (req,res) => {
     res.render('pages/stage')
 }
 
+const afficherSolti = (req,res) => {
+    res.render('pages/solti')
+}
+
 const iframe = (req,res) => {
     res.createIframe({
         url: req.query.url,
@@ -60,5 +64,6 @@ module.exports = {
     enregistrerScore,
     afficherScore,
     afficherStage,
-    iframe
+    iframe,
+    afficherSolti
 }
