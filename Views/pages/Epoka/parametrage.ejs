@@ -1,0 +1,84 @@
+    <%- include('includes/head') %> 
+    <title>Paramétrage</title>
+</head>
+
+<body>
+
+   <%- include('includes/header') %>
+   
+
+    <h1 class="d-flex justify-content-center mt-4 mb-4">Paramétrage de l'application</h1>
+    <div class="row row-cols-1">
+        <div class="card mx-auto mb-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Modifier frais</h5>
+                <form class="form-group row" method="POST" action="/Epoka/nouveauParametre">
+                    <div class="mb-3">
+                        <label class="form-label" name="km">Remboursement au km : </label>
+                        <input autocomplete="off" type="number" max="3" step="0.1" class="form-control" name="km">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" name="hebergement"> Indemnité hebergement : </label>
+                        <input autocomplete="off"max="100" type="number" class="form-control" name="hebergement">
+                    </div>
+                    <div class="col-8">
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="card mx-auto mb-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Nouvel itinéraire</h5>
+                <p class="text-danger"><%= message %></p>
+           
+                <form class="form-group row " method="POST" action="/Epoka/nouvelItineraire">
+                    <div class="mb-3">
+                        <label name="km">Ville de départ : </label>
+                        <input autocomplete="off" type="text" value="Grenoble" name="depart" placeholder="Ville départ">
+                    </div>
+                    <div class="mb-3">
+                        <label name="km">Ville d'arrivé : </label>
+                        <input autocomplete="off" type="text" name="arrivé" <% if (arrive!="") {%> value="<%= arrive %>"  <%} %> placeholder="Ville arrivé">
+                    </div>
+                    <div class="col-8">
+                        <span title="API google maps plus accesible">
+                            <button type="submit" class=" btn btn-primary"  disabled="disabled">Ajouter</button>
+                        </span>
+                       
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+      
+        <div class="container d-flex justify-content-center">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>Ville de départ</th>
+                        <th>Ville d'arrivé</th>
+                        <th>Distance(Km)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(locals.distances){ distances.forEach(function(element){ %>
+                    <tr>
+                        <td><%= element[0] %> </td>
+                        <td><%= element[1] %> </td>
+                        <td><%= element[2] %> </td>
+                    </tr>
+                    <% })}%>
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+</body>
+
+</html>

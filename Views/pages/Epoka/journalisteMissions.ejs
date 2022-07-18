@@ -1,0 +1,46 @@
+    <%- include('includes/head') %>
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include('includes/header') %>
+    <h1 class="d-flex justify-content-center mb-4">Mes missions</h1>
+    <div class="container d-flex justify-content-center">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Nom du salarié</th>
+                    <th>Prenom du salarié</th>
+                    <th>Début de la mission</th>
+                    <th>Fin de la mission</th>
+                    <th>Lieu de la mission</th>
+                    <th>Validation</th>
+                    <th>Frais</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% missions.forEach(function(element){ %>
+                <tr>
+                    <td><%= element.nomSalarie %> </td>
+                    <td><%= element.prenomSalarie %> </td>
+                    <td><%= element.debutMission %> </td>
+                    <td><%= element.finMission %> </td>
+                    <td><%= element.nomCommune %> (<%= element.cpCommune %>) </td>
+                    <% if (element.estValiderMission == 1 ){ %>
+                    <td class="text-success">Validé</td>
+                    <% } else { %>
+                    <td class="text-warning">En attente</td>
+                    <% } %>
+                    <% if (element.estPayerMission == 1 ){ %>
+                        <td class="text-success">Payé</td>
+                        <% } else { %>
+                        <td class="text-warning">En attente</td>
+                        <% } %>
+
+                </tr>
+                <% } )%>
+            </tbody>
+        </table>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+  <%- include('includes/head') %> 
+  <title>Connexion</title>
+</head>
+<body>
+ 
+    <section class="vh-100 gradient-custom">
+      <div class="container py-5 h-70">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card bg-dark text-white" style="border-radius: 1rem;">
+              <div class="card-body p-5 text-center css">
+    
+                <div class="mb-md-5 mt-md-4 pb-5">
+                  <a class = "sortie" href="/">
+                    <button class="btn btn-outline-danger " >
+                        Sortie
+                      </button>
+                    </a>
+                  <form action="/Epoka/auth" method="POST" enctype="application/x-www-form-urlencoded" >
+                  <h2 class="fw-bold mb-2 text-uppercase">Connexion</h2>
+                  <p class="text-white-50 mb-5">Enter votre numéro et votre mot de passe!</p>
+                  <% if (locals.message) {%> 
+                    <p class="text-danger"><%= message %></p>
+                  <% } %> 
+                  <div class="form-outline form-white mb-4">
+                    <input autocomplete="off" type="text" name="numSalarie" id="numSalarie"  class="form-control form-control-lg" />
+                    <label class="form-label" for="typeEmailX">Numéro de salarié</label>
+                  </div>
+    
+                  <div class="form-outline form-white mb-4">
+                    <input autocomplete="off" type="password" name ="mdpSalarie" id="mdpSalarie" class="form-control form-control-lg" />
+                    <label class="form-label" for="typePasswordX">Mot de passe</label>
+                  </div>
+    
+                  <button class="btn btn-outline-success btn-lg px-5" type="submit">Connexion</button><br><br>
+
+                
+                  <p>Comptable : n°1 , mdp : 123</p>
+                  <p>Responsable : n°2 , mdp : 123</p>
+                  <p>Journaliste : n°3 , mdp : 123</p>
+                  <p>Patron : n°4 , mdp : 123</p>
+
+                </form>               
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      
+    </section>
+
+   
+</body>
+</html>

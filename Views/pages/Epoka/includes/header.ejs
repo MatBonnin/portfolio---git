@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <h2 class="navbar-brand" >Epoka</h2>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <% if (session.isJournaliste==1 ){ %>
+          <li class="nav-item">
+           
+            <a class="nav-link active" href="/Epoka/missions">Mes missions</a>
+          
+          
+          </li>
+          <% } %>
+        <% if (session.isResponsable==1 ){ %>
+        <li class="nav-item">
+          <% if (nomPage == "Validation") {%>
+          <a class="nav-link active" href="/Epoka/validation">Validation des missions</a>
+          <% } else {%>
+          <a class="nav-link" href="/Epoka/validation">Validation des missions</a>
+          <% } %>
+        </li>
+        <% } %>
+        <% if (session.peutPayer==1){ %>
+        <li class="nav-item">
+          <% if (nomPage == "Paiement") {%>
+          <a class="nav-link active" href="/Epoka/paiement">Paiement des frais</a>
+          <% } else {%>
+          <a class="nav-link" href="/Epoka/paiement">Paiement des frais</a>
+          <% } %>
+        </li>
+        <li class="nav-item">
+          <% if (nomPage == "Parametrage") {%>
+          <a class="nav-link active" href="/Epoka/parametrage">Paramétrage</a>
+          <% } else {%>
+          <a class="nav-link" href="/Epoka/parametrage">Paramétrage</a>
+          <% } %>
+        </li>
+        <% } %>
+      </ul>
+
+
+
+      <span class="navbar-text">
+
+        <form method="POST" action='/Epoka/deconnexion'>
+          <label> <% if (locals.session) { %> <%= session.name %> <% } %> </label>
+          <input autocomplete="off" class="btn btn-outline-danger  px-2" type="submit" value="Deconnexion">
+        </form>
+
+      </span>
+    </div>
+  </div>
+</nav>

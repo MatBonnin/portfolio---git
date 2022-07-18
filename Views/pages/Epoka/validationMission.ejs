@@ -1,0 +1,43 @@
+
+    <%- include('includes/head') %>
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include('includes/header') %>
+    <h1 class="d-flex justify-content-center mt-4 mb-4">Validation des missions</h1>
+    <div class="container d-flex justify-content-center">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Nom du salarié</th>
+                    <th>Prenom du salarié</th>
+                    <th>Début de la mission</th>
+                    <th>Fin de la mission</th>
+                    <th>Lieu de la mission</th>
+                    <th>validation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% missions.forEach(function(element){ %>
+                <tr>
+                    <td><%= element.nomSalarie %> </td>
+                    <td><%= element.prenomSalarie %> </td>
+                    <td><%= element.debutMission %> </td>
+                    <td><%= element.finMission %> </td>
+                    <td><%= element.nomCommune %> (<%= element.cpCommune %>) </td>
+                    <% if (element.estValiderMission == 1 ){ %>
+                    <td>Mission validé</td>
+                    <% } else { %>
+                    <form method="POST" action="/Epoka/validerMission/<%= element.idMission %>">
+                        <td><input autocomplete="off" class="btn btn-outline-success " type="submit" value="Valider"></td>
+                    </form>
+                    <% } %>
+
+                </tr>
+                <% } )%>
+            </tbody>
+        </table>
+</body>
+
+</html>

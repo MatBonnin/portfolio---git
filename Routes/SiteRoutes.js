@@ -6,6 +6,9 @@ const routeur = express.Router();
 const Controle = require('../Controllers/SiteController.js');
 const ControlePharmacie = require('../pharmacie/controllers/SiteController.js');
 
+const ControleEpoka = require('../Epoka/controllers/SiteController');
+const APIController = require('../Epoka/API/APIcontroller');
+
 
 
  routeur.get('/', Controle.accueil);
@@ -84,5 +87,30 @@ routeur.get('/SIO2/STAGE', Controle.afficherStage);
 routeur.get('/iframe', Controle.iframe);
 
 routeur.get('/SIO2/SOLTI', Controle.afficherSolti);
+
+
+//EPOKA
+
+//API
+routeur.get('/Epoka/API/auth',APIController.auth);
+routeur.get('/Epoka/API/GetVilles',APIController.GetVilles);
+routeur.get('/Epoka/API/ajouterMission',APIController.ajouterMission);
+
+
+// Afficher page accueil
+routeur.get('/Epoka', ControleEpoka.afficher_connexion);
+routeur.get('/Epoka/parametrage',ControleEpoka.parametrage)
+routeur.get('/Epoka/validation',ControleEpoka.validation)
+routeur.get('/Epoka/paiement',ControleEpoka.paiementMissions)
+routeur.get('/Epoka/missions',ControleEpoka.journalisteMissions)
+
+
+routeur.post('/Epoka/auth',ControleEpoka.authentification);
+routeur.post('/Epoka/nouveauParametre',ControleEpoka.nouveauParametre);
+routeur.post('/Epoka/validerMission/:id',ControleEpoka.validerMission);
+routeur.post('/Epoka/payerMission/:id',ControleEpoka.payerMission);
+routeur.post('/Epoka/nouvelItineraire',ControleEpoka.nouvelItineraire)
+routeur.post('/Epoka/deconnexion',ControleEpoka.deconnexion);
+
 
  module.exports = routeur;
