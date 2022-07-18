@@ -1,6 +1,7 @@
 const express = require('express')
-const Routeur = require('./routes/SiteRoutes');
+const Routeur = require('./Routes/SiteRoutes.js');
 const session = require('express-session');
+var http = require('http');
 
 
 
@@ -32,6 +33,8 @@ app.use('/pdf', express.static(__dirname + '/pdf'));
 app.use(Routeur)
 
 
+app.set('port',8100);
+var server = http.createServer(app);
+server.listen(8100,'fd00::3:c10c');
 
-
-app.listen(3002)
+console.log(app.get('port'));

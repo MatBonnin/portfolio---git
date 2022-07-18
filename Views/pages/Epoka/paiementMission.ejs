@@ -1,0 +1,56 @@
+
+    <%- include('includes/head') %>
+    <title>Paiement des mission</title>
+</head>
+
+<body>
+    <%- include('includes/header') %>
+    <h1 class="d-flex justify-content-center mt-4 mb-4">Paiement des missions</h1>
+    <div class="container d-flex justify-content-center">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Nom du salarié</th>
+                    <th>Prenom du salarié</th>
+                    <th>Début de la mission</th>
+                    <th>Fin de la mission</th>
+                    <th>Lieu de la mission</th>
+                    <th>prix</th>
+                    <th>Paiement</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+                <% 
+                    let i=0
+                    missions.forEach(function(element){ 
+                 %>
+                <tr>
+                    <td><%= element.nomSalarie %> </td>
+                    <td><%= element.prenomSalarie %> </td>
+                    <td><%= element.debutMission %> </td>
+                    <td><%= element.finMission %> </td>
+                    <td><%= element.nomCommune %> (<%= element.cpCommune %>) </td>
+                    <% if (km[i]=='err') {%>
+                        <td > <a class="link-warning" href="/Epoka/parametrage?arrive=<%= element.nomCommune %>">Configurer</a></td>
+                    <% } else {%>
+                    <td><%= km[i] %> </td>
+                    <% } %>
+
+                    <% if (element.estPayerMission == 1 ){ %>
+                    <td class="text-success">Mission payé</td>
+                    <% } else { %>
+                    <form method="POST" action="/Epoka/payerMission/<%= element.idMission %>">
+                        <td><input autocomplete="off" class="btn btn-outline-success" type="submit" value="Payer"></td>
+                    </form>
+                    <% } %>
+
+                </tr>
+                <% i++ } )%>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

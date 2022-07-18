@@ -2,7 +2,7 @@ const mysql = require('mysql')
 const iniparser = require('iniparser')
 
 
-let configDB = iniparser.parseSync('DB.ini')
+let configDB = iniparser.parseSync('db.ini')
 let mysqlconnexion = mysql.createConnection({
     host: configDB['dev']['host'],
     user: configDB['dev']['user'],
